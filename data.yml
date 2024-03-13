@@ -1,17 +1,17 @@
-defaultStorageMapping: DESTINATION
+defaultStorageMapping: BROKEN_DESTINATION
 installedPackages: {}
 jobs: {}
 locations:
-  DESTINATION:
+  BROKEN_DESTINATION:
     mappingDefinitions:
       "24":
-        database: BEN_EDW
-        schema: PREVIEW_QA_7_0_1_BORKED_MAPPINGS_ENV
-  SOURCE:
+        database: ""
+        schema: ""
+  BROKEN_SOURCE:
     mappingDefinitions:
       "24":
-        database: COALESCE_SAMPLE_DATABASE
-        schema: TPCH_SF001
+        database: ""
+        schema: ""
 macros: {}
 packages: {}
 projects: {}

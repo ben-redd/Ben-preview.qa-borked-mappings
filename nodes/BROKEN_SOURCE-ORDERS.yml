@@ -1,11 +1,14 @@
 steps:
-  PART-1ef15fd5-c966-4a58-b1ee-0f2fba3269b5:
+  ORDERS-35e5e480-2dd3-4a2e-a6be-133f5f808a64:
     operation:
       database: ""
       dataset: ""
       deployEnabled: true
-      description: ""
-      locationName: SOURCE
+      description: |-
+        Orders are not present for all customers. In fact, one-third of the customers do not have any order in
+        the database. The orders are assigned at random to two-thirds of the customers (see Clause 4: ). The purpose of
+        this is to exercise the capabilities of the DBMS to handle "dead data" when joining two or more tables.
+      locationName: BROKEN_SOURCE
       metadata:
         columns:
           - acceptedValues:
@@ -13,14 +16,14 @@ steps:
               values: []
             appliedColumnTests: {}
             columnReference:
-              columnCounter: 4aa4f91a-5e63-406b-8fd8-2c664d2240c0
-              stepCounter: 1ef15fd5-c966-4a58-b1ee-0f2fba3269b5
+              columnCounter: 1a9f5957-10fe-4f23-8a41-d7ff51e75aba
+              stepCounter: 35e5e480-2dd3-4a2e-a6be-133f5f808a64
             config: {}
             dataType: NUMBER(38,0)
             defaultValue: ""
-            description: ""
-            name: P_PARTKEY
-            nullable: false
+            description: SF*1,500,000 are sparsely populated
+            name: O_ORDERKEY
+            nullable: true
             primaryKey: false
             uniqueKey: false
           - acceptedValues:
@@ -28,74 +31,14 @@ steps:
               values: []
             appliedColumnTests: {}
             columnReference:
-              columnCounter: 66c0739e-4991-48d9-a22b-fc0f7cd66e05
-              stepCounter: 1ef15fd5-c966-4a58-b1ee-0f2fba3269b5
-            config: {}
-            dataType: VARCHAR(55)
-            defaultValue: ""
-            description: ""
-            name: P_NAME
-            nullable: false
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 135bc260-447d-4dc5-802f-e862fd85ab96
-              stepCounter: 1ef15fd5-c966-4a58-b1ee-0f2fba3269b5
-            config: {}
-            dataType: VARCHAR(25)
-            defaultValue: ""
-            description: ""
-            name: P_MFGR
-            nullable: false
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: df66fc17-1da3-4ad8-8172-f0ea06b71527
-              stepCounter: 1ef15fd5-c966-4a58-b1ee-0f2fba3269b5
-            config: {}
-            dataType: VARCHAR(10)
-            defaultValue: ""
-            description: ""
-            name: P_BRAND
-            nullable: false
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 190bf5a3-8c37-4cef-a913-6de8b3d7f41b
-              stepCounter: 1ef15fd5-c966-4a58-b1ee-0f2fba3269b5
-            config: {}
-            dataType: VARCHAR(25)
-            defaultValue: ""
-            description: ""
-            name: P_TYPE
-            nullable: false
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: d4369f78-1498-446d-8e1f-3e7a6cd7c936
-              stepCounter: 1ef15fd5-c966-4a58-b1ee-0f2fba3269b5
+              columnCounter: 0d18b955-66fe-4236-a042-137cd4513449
+              stepCounter: 35e5e480-2dd3-4a2e-a6be-133f5f808a64
             config: {}
             dataType: NUMBER(38,0)
             defaultValue: ""
-            description: ""
-            name: P_SIZE
-            nullable: false
+            description: Foreign Key to C_CUSTKEY
+            name: O_CUSTKEY
+            nullable: true
             primaryKey: false
             uniqueKey: false
           - acceptedValues:
@@ -103,13 +46,13 @@ steps:
               values: []
             appliedColumnTests: {}
             columnReference:
-              columnCounter: 6f7eb957-cc25-4ef5-b2e9-03e40d21ea55
-              stepCounter: 1ef15fd5-c966-4a58-b1ee-0f2fba3269b5
+              columnCounter: 581492b9-84d4-4ee8-8631-85cea783eff9
+              stepCounter: 35e5e480-2dd3-4a2e-a6be-133f5f808a64
             config: {}
-            dataType: VARCHAR(10)
+            dataType: VARCHAR(1)
             defaultValue: ""
             description: ""
-            name: P_CONTAINER
+            name: O_ORDERSTATUS
             nullable: false
             primaryKey: false
             uniqueKey: false
@@ -118,13 +61,13 @@ steps:
               values: []
             appliedColumnTests: {}
             columnReference:
-              columnCounter: f802a9e1-0350-4d73-bea2-13429bbbb2f7
-              stepCounter: 1ef15fd5-c966-4a58-b1ee-0f2fba3269b5
+              columnCounter: ecbe4ff1-4fc0-48c4-8825-e4c95ac17fb8
+              stepCounter: 35e5e480-2dd3-4a2e-a6be-133f5f808a64
             config: {}
             dataType: NUMBER(12,2)
             defaultValue: ""
             description: ""
-            name: P_RETAILPRICE
+            name: O_TOTALPRICE
             nullable: false
             primaryKey: false
             uniqueKey: false
@@ -133,21 +76,81 @@ steps:
               values: []
             appliedColumnTests: {}
             columnReference:
-              columnCounter: 5fce9250-67c9-4629-91c4-a792fac5badc
-              stepCounter: 1ef15fd5-c966-4a58-b1ee-0f2fba3269b5
+              columnCounter: d6247acf-146c-43d9-9968-415b587568cb
+              stepCounter: 35e5e480-2dd3-4a2e-a6be-133f5f808a64
             config: {}
-            dataType: VARCHAR(23)
+            dataType: DATE
             defaultValue: ""
             description: ""
-            name: P_COMMENT
-            nullable: true
+            name: O_ORDERDATE
+            nullable: false
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 590c48b4-9965-4259-bde0-cc8b443329a3
+              stepCounter: 35e5e480-2dd3-4a2e-a6be-133f5f808a64
+            config: {}
+            dataType: VARCHAR(15)
+            defaultValue: ""
+            description: ""
+            name: O_ORDERPRIORITY
+            nullable: false
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: aeed5c5f-f230-4380-82f6-d9de9ba6863f
+              stepCounter: 35e5e480-2dd3-4a2e-a6be-133f5f808a64
+            config: {}
+            dataType: VARCHAR(15)
+            defaultValue: ""
+            description: ""
+            name: O_CLERK
+            nullable: false
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: a8b57a08-23bc-4994-bc09-7d81ba54792b
+              stepCounter: 35e5e480-2dd3-4a2e-a6be-133f5f808a64
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: O_SHIPPRIORITY
+            nullable: false
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: b79ea431-fb49-4ff9-8434-dd12dfa9eb75
+              stepCounter: 35e5e480-2dd3-4a2e-a6be-133f5f808a64
+            config: {}
+            dataType: VARCHAR(79)
+            defaultValue: ""
+            description: ""
+            name: O_COMMENT
+            nullable: false
             primaryKey: false
             uniqueKey: false
         join:
-          joinCondition: FROM {{ ref('SOURCE', 'PART') }}
-      name: PART
+          joinCondition: FROM {{ ref('SOURCE', 'ORDERS') }}
+      name: ORDERS
       schema: ""
       sqlType: Source
-      table: PART
+      table: ORDERS
       type: sourceInput
-    stepCounter: 1ef15fd5-c966-4a58-b1ee-0f2fba3269b5
+    stepCounter: 35e5e480-2dd3-4a2e-a6be-133f5f808a64

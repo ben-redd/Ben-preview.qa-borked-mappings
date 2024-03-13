@@ -11,7 +11,7 @@ steps:
       deployEnabled: true
       description: ""
       isMultisource: false
-      locationName: DESTINATION
+      locationName: BROKEN_DESTINATION
       materializationType: table
       metadata:
         appliedNodeTests: []
